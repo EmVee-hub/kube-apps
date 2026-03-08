@@ -1,1 +1,18 @@
+# Default values for nginx-ingress.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
 
+# Enable the ingress-nginx controller
+controller:
+  enabled: true
+  service:
+    type: NodePort
+  ingressClassResource:
+    name: nginx
+    enabled: true
+    default: true
+    controllerValue: "k8s.io/ingress-nginx"
+
+# Enable default backend
+defaultBackend:
+  enabled: true
