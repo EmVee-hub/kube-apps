@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-page
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/EmVee-hub/kube-apps.git
+    targetRevision: HEAD
+    path: hello-page
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hello-page
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
