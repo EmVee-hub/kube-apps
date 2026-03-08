@@ -1,0 +1,5 @@
+apiVersion: v2
+name: hello-world-2
+description: A simple hello world web page - version 2
+version: 0.1.0
+appVersion: "1.0"

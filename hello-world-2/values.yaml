@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: alpine
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - host: hello-world-2.local
+      paths:
+        - path: /
+          pathType: Prefix
