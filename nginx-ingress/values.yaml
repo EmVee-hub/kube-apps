@@ -7,6 +7,7 @@ controller:
   enabled: true
   service:
     type: NodePort
+    port: 80
   ingressClassResource:
     name: nginx
     enabled: true
@@ -16,3 +17,7 @@ controller:
 # Enable default backend
 defaultBackend:
   enabled: true
+
+# Service port for the ingress controller
+service:
+  port: 80
